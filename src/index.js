@@ -3,19 +3,16 @@ import mongoose from 'mongoose'
 import helmet from 'helmet'
 import cors from 'cors'
 import { json, urlencoded } from 'body-parser'
+import dotenv from 'dotenv'
+dotenv.config()
 
-import config from './config'
+import config from './config' 
 
 // import api routes
 import api from './routes/index'
 import { serverResponse } from './utils/helpers'
 
 const app = express()
-
-mongoose.connect(config.dbUrl, {
-  useCreateIndex: true,
-  useNewUrlParser: true
-})
 
 app.use(helmet())
   .disable('x-poweredBy')
